@@ -3,9 +3,13 @@ export const goToSearch = (history) => {
 }
 
 export const goToRepos = (history, user) => {
-    history.push(`/user/${user}/repos`)
+    history.push(`${user}/repos`)
 }
 
 export const goToStarred = (history, user) => {
-    history.push(`/user/${user}/starred`)
+    history.push(`${user}/starred`)
+}
+
+export const goToDetail = (history, user) => {
+    history.push(`${user}`)
 }

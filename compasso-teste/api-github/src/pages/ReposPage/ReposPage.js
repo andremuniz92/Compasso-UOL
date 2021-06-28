@@ -1,17 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ListComponent from '../../components/ListComponent/ListComponent'
 import { BASE_URL } from '../../constants/requestConstants'
 import useRequestData from '../../hooks/useRequestData'
 import { Typography } from '@material-ui/core'
 import { RepoContainer } from './styled'
+import { useParams } from 'react-router-dom'
+
 
 const ReposPage = (props) => {
-    const repos = useRequestData([], `${BASE_URL}/${props.search}/repos`)
-    console.log(repos)
+    const param = useParams()
+    const repos = useRequestData([], `${BASE_URL}/${param.user}/repos`)
 
     const reposList = repos.map((repo) => {
         return (
-                <ListComponent 
+                <ListComponent
+                key={repo.id} 
                 name={repo.name}
                 url={repo.html_url}
                 />)
