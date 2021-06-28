@@ -13,4 +13,4 @@ npm install
 npm start
 ```
 
-Link do deploy: 
+Link do deploy: compasso-teste.surge.sh
