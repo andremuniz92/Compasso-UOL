@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -7,12 +6,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { goToRepos } from '../../routes/coordinator';
-import { repos, starred } from '../../services/user';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import { goToRepos, goToStarred } from '../../routes/coordinator';
 
 const DetailCard = (props) => {
   const history = useHistory()
+  const param = useParams()
+
   return (
     <Card>
       <CardActionArea>
@@ -33,10 +33,10 @@ const DetailCard = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" onClick={()=>repos(props.user.login,history)}>
+        <Button size="small" color="primary" onClick={()=>goToRepos(history,param.user)}>
           REPOS
         </Button>
-        <Button size="small" color="primary" onClick={()=>starred(props.user.login,history)}>
+        <Button size="small" color="primary" onClick={()=>goToStarred(history,param.user)}>
           STARRED
         </Button>
       </CardActions>

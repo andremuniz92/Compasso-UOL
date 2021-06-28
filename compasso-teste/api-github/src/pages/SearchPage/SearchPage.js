@@ -1,25 +1,22 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import logo from '../../assets/logo.png'
 import {ScreenContainer, LogoImage, InputContainer} from './styled'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import { searchUser } from '../../services/user'
-import DetailUserComponent from '../../components/DetailUserComponent/DetailUserComponent'
+import { useHistory } from 'react-router-dom'
+import { goToDetail } from '../../routes/coordinator'
 
-const SearchPage = (props) => {
-    const [user, setUser] = useState('')
-    const {search, setSearch} = props
-    
+const SearchPage = () => {
+    const [search, setSearch] = useState('')
+    const history = useHistory()
+
     const onChangeUser = (event) => {
         setSearch(event.target.value)
     }
 
-    console.log(user)
-    
     return (
         <ScreenContainer>
             <LogoImage src={logo}/>
-            {!user ? 
             <InputContainer>
                 <TextField
                     value={search}
@@ -34,11 +31,9 @@ const SearchPage = (props) => {
                     variant={"contained"}
                     color={"primary"}
                     fullWidth
-                    onClick={()=>searchUser(search, setUser)}
+                    onClick={()=>goToDetail(history,search)}
                 >Procurar</Button>
             </InputContainer> 
-            :
-            <DetailUserComponent user={user}/>}
         </ScreenContainer>
     )
 }

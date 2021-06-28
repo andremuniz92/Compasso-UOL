@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -9,7 +9,7 @@ import {useHistory} from 'react-router-dom';
 
 const Header = () => {
     const history = useHistory()
-    // const [buttonPhrase, setButtonPhrase] = useState('')
+
     return (
       <AppBar position="static">
         <Toolbar>
