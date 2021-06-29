@@ -25,6 +25,7 @@ const SearchPage = () => {
                     variant={"filled"}
                     margin={"normal"}
                     fullWidth
+                    color="primary"
                 />
                 <Button
                     margin={"normal"}
