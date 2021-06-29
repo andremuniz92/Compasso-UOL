@@ -28,6 +28,7 @@ const DetailCard = (props) => {
             {props.user.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
+            {props.user.login} <br/>
             Número de repositórios:  {props.user.public_repos}
           </Typography>
         </CardContent>
